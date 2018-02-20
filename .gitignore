@@ -34,4 +34,6 @@ xcuserdata/**
 *.iml
 local.properties
 gradleBuild
-
+MNIST_data/
+my_net/
+logs/
