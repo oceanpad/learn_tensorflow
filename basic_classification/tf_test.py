@@ -23,25 +23,10 @@ print(train_labels)
 
 print(test_images.shape)
 
-plt.figure()
-plt.imshow(train_images[0])
-plt.colorbar()
-plt.grid(False)
-
 train_images = train_images / 255.0
 
 test_images = test_images / 255.0
 
-plt.figure(figsize=(10,10))
-for i in range(25):
-    plt.subplot(5,5,i+1)
-    plt.xticks([])
-    plt.yticks([])
-    plt.grid(False)
-    plt.imshow(train_images[i], cmap=plt.cm.binary)
-    plt.xlabel(class_names[train_labels[i]])
-
-plt.show()
 
 model = keras.Sequential([
     keras.layers.Flatten(input_shape=(28, 28)),
@@ -101,13 +86,6 @@ plot_image(i, predictions, test_labels, test_images)
 plt.subplot(1,2,2)
 plot_value_array(i, predictions,  test_labels)
 
-i = 12
-plt.figure(figsize=(6,3))
-plt.subplot(1,2,1)
-plot_image(i, predictions, test_labels, test_images)
-plt.subplot(1,2,2)
-plot_value_array(i, predictions,  test_labels)
-
 # Plot the first X test images, their predicted label, and the true label
 # Color correct predictions in blue, incorrect predictions in red
 num_rows = 5
@@ -136,5 +114,7 @@ print(predictions_single)
 
 plot_value_array(0, predictions_single, test_labels)
 _ = plt.xticks(range(10), class_names, rotation=45)
+
+plt.show()
 
 print(np.argmax(predictions_single[0]))
