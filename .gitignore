@@ -37,3 +37,4 @@ gradleBuild
 MNIST_data/
 my_net/
 logs/
+venv
